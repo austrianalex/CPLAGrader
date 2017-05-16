@@ -1,0 +1,28 @@
+<form action="<?php echo $this->escape($this->element->getAction())?>"
+      method="<?php echo $this->escape($this->element->getMethod())?>"
+      id="<?php echo $this->element->getId()?>"
+      class="nosubmit"
+      onsubmit="return false;">
+
+<?php echo $this->element->Id ?>
+<?php echo $this->element->UserId ?>
+<?php echo $this->element->AssignmentId ?>
+
+<table class="grading">
+<tr>
+	<td class="td-name">
+    <?php echo $this->element->getLegend()?>
+	</td>
+	<td class="td-score"> 
+    <?php echo $this->element->Score ?> 
+    <div class="hidden"><?php echo $this->element->Comment ?></div>
+	</td>
+	<td>
+	<span class="button commentButton">Add Comment</span>
+	</td>
+	<td>
+	<?php echo $this->element->html_url?>
+	</td>
+</tr>
+</table>
+</form>

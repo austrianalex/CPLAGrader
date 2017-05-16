@@ -1,0 +1,48 @@
+Hello <b><?php echo $this->user->getFirstName().' '.$this->user->getLastName();?></b><div class="clearer"></div>
+<div id="news">
+	<h1>News</h1>
+	<div class="ui-tabs ui-widget-content ui-corner-all">
+		<div class="ui-tabs-panel">
+        <?php foreach($this->channel as $item)
+		{
+            ?><h2><a href="<?php echo $item->link()?>"><?php echo $item->title()?> </a></h2>
+            <em>posted on 
+            <?php $date = new Zend_Date($item->pubDate(),Zend_Date::RSS);
+                echo $date->setTimezone('America/Los_Angeles')->toString("MMMM d, yyyy - h:mm a z");
+            ?>
+            </em>
+            <?php echo $item->encoded()?>
+		<?php 
+		}?>
+		</div>
+	</div>
+</div>
+<div id="status">
+    <h1>Class Status</h1>
+    <div class="tabs">
+    	<ul>
+    		<li><a href="#hw">Homework Scores</a></li>
+    		<li><a href="#test">Test Scores</a></li>
+    		<li><a href="#overall">Overall</a></li>
+    	</ul>
+    	<div id="hw">
+            <h2>Homework total points</h2>
+            <?php echo $this->hwScore?>
+            <h2>Homework total grade</h2>
+            <?php echo $this->hwGrade?>
+        </div>
+        <div id="test">
+        	<h2>Lit 1 Score</h2>
+        	<?php echo $this->user->getModelTest()->getTest1()?>
+            <h2>Lit 2 Score</h2>
+            <?php echo $this->user->getModelTest()->getTest2()?>
+            <h2>Test total grade</h2>
+            <?php echo $this->testGrade?>
+        </div>
+        <div id="overall">
+        	<h2>Overall Class Grade</h2>
+            <?php echo $this->overallGrade ?>
+        </div>
+    </div>
+</div>
+

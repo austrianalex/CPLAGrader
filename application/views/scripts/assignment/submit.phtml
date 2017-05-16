@@ -1,0 +1,21 @@
+<h1>Submit Assignment</h1>
+
+<?php 
+if ($this->assignment)
+{
+    ?>
+    <h2> <?php echo $this->assignment->getName()?></h2>
+    <?php
+}
+if ($this->message)
+{
+    echo $this->message;
+}
+else
+{
+    if ($this->id_param)
+        $this->form->setAction($this->url($this->id_param));
+    else
+        $this->form->setAction($this->url());
+    echo $this->form;
+}

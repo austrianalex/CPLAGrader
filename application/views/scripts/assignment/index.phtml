@@ -1,0 +1,78 @@
+<h1>Assignments</h1>
+
+<div id="assignments">
+<?php
+foreach ($this->assignments as $assignment)
+{
+    $ua = $this->uas[$assignment->getId()];
+    if ($ua->getId() === null)
+    {
+        $score = 0;
+        $comment = null;
+        $submitted = false;
+    }
+    else
+    {
+        $score = $ua->getScore();
+        $comment = $ua->getComment();
+        $submitted = true;
+    }
+    if (!$comment)
+    {
+        $comment = "None";
+    }
+    $due = new Zend_Date($assignment->getDue(), Zend_Date::ISO_8601);
+    
+?>
+	<h3><a href="#"><?php echo $assignment->getName()?></a></h3>
+	<div class="ribbon">
+		<h2 class="score"><?php echo $score?>/<?php echo $assignment->getMaxPoints()?></h2>
+		<h2><?php echo $assignment->getTypeFriendlyName()?></h2>
+		<span class="description">
+			<?php echo $assignment->getDescription()?>
+		</span>
+		<div class="clearer"></div>
+		<div class="due">Assignment due by: <span class="dueDate"><?php echo $due->toString("MMMM d, yyyy - h:mm a z");?></span>
+    		
+        	<?php 
+                if ($due->isLater( Zend_Date::now() ))
+                {?>
+                    <span class="submitLink">
+                    	<a href="assignment/submit/id/<?php echo $assignment->getID()?>">Submit Assignment</a>
+                    </span>
+                    <?php
+                }
+            	if ($submitted)
+            	{?>
+            		<br />(This assignment has already been submitted)<br />
+            		<?php 
+            		if ($assignment->getTypeName() == 'html')
+            		{
+            		     echo '<a href="'.$ua->getUrl().'">'.$ua->getUrl().'</a>';
+            		}
+            		else if ($assignment->getTypeName() != 'inclass' || $assignment->getTypeName() != 'email')
+            		{
+            		    echo '<a href="'.$this->url(array('controller' => 'download', 'action' => 'index', 'id' => $ua->getId())).'">Download Assignment</a>';
+            		}
+            	} 
+            ?>
+            
+        </div>
+        <?php 
+            if ($assignment->getReleased())
+            {
+                ?>
+        	<div class="grade">
+        		This assignment has been graded. TA/Instructor comments:
+        		<div class="comment">
+        			<blockquote><?php echo $comment?></blockquote>
+        		</div>
+        	</div>
+        	<?php 
+            }
+        ?>
+	</div>
+<?php 
+}
+?>
+</div>

@@ -1,0 +1,91 @@
+<h1>Class Grades</h1>
+<div class="tabs">
+	<ul>
+		<?php foreach($this->assignments as $assignment)
+        {?>
+           <li><a href="#assignment_<?php echo $assignment->getId()?>"><?php echo $assignment->getName()?></a></li>
+        <?php
+        }
+        ?>
+        <li><a href="#overall">Overall</a></li>
+	</ul>
+<?php foreach ($this->assignments as $assignment)
+{?>
+	<div id="assignment_<?php echo $assignment->getId()?>">
+		<table class="assignment ui-widget">
+		<thead class="ui-widget-header">
+		<tr>
+			<th>Name</th>
+			<th>Score</th>
+		</tr>
+		</thead>
+		<tbody class="ui-widget-content">
+    <?php foreach ($this->users as $user)
+    {?>
+    	<tr>	
+    		<td class="user"><?php echo $user->getProperName();?></td>
+    		<td class="score">
+    <?php
+	    foreach ($user->getModelUserAssignments() as $ua)
+	    {
+            if ($assignment->getId() == $ua->getAssignmentId())
+            {
+                echo $ua->getScore();
+                break;
+            }
+	    }?>
+	   		</td>
+        </tr>
+	    <?php
+    }
+	?>
+		</tbody>
+		</table>
+	</div>
+<?php
+}
+?>
+	<div id="overall">
+		<table class="assignment ui-widget">
+		<thead class="ui-widget-header">
+		<tr>
+			<th>Name</th>
+			<th>HW Score</th>
+			<th>HW Grade</th>
+			<th>Lit Test 1</th>
+			<th>Lit Test 2</th>
+			<th>Overall Grade</th>
+		</tr>
+		</thead>
+		<tbody class="ui-widget-content">
+<?php 
+foreach($this->users as $user)
+{
+    ?>
+    	<tr>
+    		<td>
+    <?php echo $user->getProperName();?>
+        	</td>
+        	<td>
+    <?php echo $this->hwScores[$user->getId()]?>
+        	</td>
+        	<td>
+    <?php echo $this->hwGrades[$user->getId()]?>    	
+        	</td>
+        	<td>
+    <?php echo $user->getModelTest()->getTest1()?>
+        	</td>
+        	<td>
+    <?php echo $user->getModelTest()->getTest2()?>    	
+        	</td>    	
+        	<td>
+    <?php echo $this->overallGrades[$user->getId()]?>
+        	</td>
+        </tr>
+    <?php
+}
+?>
+		</tbody>
+		</table>
+	</div>
+</div>

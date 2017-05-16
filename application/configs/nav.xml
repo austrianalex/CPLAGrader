@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <nav>
+        <index>
+            <label>Home</label>
+            <controller>index</controller>
+            <action>index</action>
+            <resource>index</resource>
+        </index>
+        
+        <login>
+            <label>Login</label>
+            <controller>login</controller>
+            <action>index</action>
+            <resource>login</resource>
+            <privilege>login</privilege>
+        </login>
+        <register>
+	        <controller>login</controller>
+	        <action>register</action>
+	        <label>Register</label>
+	        <resource>login</resource>
+	        <privilege>register</privilege>
+        </register>
+        
+        <assignment>
+            <label>Assignments</label>
+            <controller>assignment</controller>
+            <action>index</action>
+            <resource>assignment</resource>
+            <privilege>assignment</privilege>
+            <pages>
+                <grade>
+                    <label>Grade Assignment</label>
+                    <controller>assignment</controller>
+                    <action>grade</action>
+                    <resource>assignment</resource>
+                    <privilege>grade</privilege>
+                </grade>
+                <new>
+                    <label>Create Assignment</label>
+                    <controller>assignment</controller>
+                    <action>new</action>
+                    <resource>assignment</resource>
+                    <privilege>new</privilege>
+                </new>
+                <edit>
+                    <label>Edit Assignment</label>
+                    <controller>assignment</controller>
+                    <action>edit</action>
+                    <resource>assignment</resource>
+                    <privilege>edit</privilege>
+                </edit>
+                <submit>
+                    <label>Submit Assignment</label>
+                    <controller>assignment</controller>
+                    <action>submit</action>
+                    <resource>assignment</resource>
+                    <privilege>submit</privilege>
+                </submit>
+            </pages>
+        </assignment>
+        <user>
+            <label>Account</label>
+            <controller>user</controller>
+            <action>index</action>
+            <resource>user</resource>
+            <privilege>user</privilege>
+        </user>
+        <admin>
+            <label>Grades</label>
+            <controller>admin</controller>
+            <action>index</action>
+            <resource>admin</resource>
+            <privilege>admin</privilege>
+            <pages>
+                <scoreTest>
+                    <label>Enter Test Grades</label>
+                    <controller>admin</controller>
+                    <action>score-test</action>
+                    <resource>admin</resource>
+                    <privilege>score-test</privilege>
+                </scoreTest>
+            </pages>
+        </admin>
+        <logout>
+             <controller>login</controller>
+             <action>logout</action>
+             <label>Logout</label>
+             <resource>login</resource>
+             <privilege>logout</privilege>
+        </logout>
+    </nav>
+</config>

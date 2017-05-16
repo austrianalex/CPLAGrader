@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+/*index*/
+.score{float:right; font-weight:bold;}
+.description{font-size:.95em; font-weight:normal;}
+.submitLink{float:right;}
+.due{padding: 4px; margin: 30px 0px 0px 10px;}
+.dueDate{font-weight:bold}
+.grade{margin-top:30px;}
+/* assignment/grade */
+.grading {border-bottom: 1px solid #dadada;}
+form .Comment{width: 200px; height:75px;}
+.td-name {width:100px;}
+blockquote ul, blockquote li{list-style-type:circle; padding-left: 10px;}

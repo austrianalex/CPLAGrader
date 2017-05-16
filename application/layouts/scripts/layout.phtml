@@ -1,0 +1,79 @@
+<!-- application/layouts/scripts/layout.phtml -->
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>CPLA Grader</title>
+        <?php
+        $baseUrl = Zend_Controller_Front::getInstance()->getBaseUrl();
+        $siteConfig = new Zend_Config_Xml(APPLICATION_PATH.'/configs/SiteConfig.xml');
+
+        $this->headLink()->prependStylesheet($baseUrl.'/css/main.css');
+        $this->headLink()->prependStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/redmond/jquery-ui.css');
+        //$this->headLink()->prependStylesheet('https://jquery-ui.googlecode.com/svn/branches/labs/selectmenu/ui.selectmenu.css'); 
+        $this->headLink()->prependStylesheet('http://yui.yahooapis.com/3.2.0/build/cssreset/reset-min.css');
+        echo $this->headLink();
+        
+        $this->headScript()->prependFile($baseUrl.'/js/main.js');
+        $this->headScript()->prependFile($baseUrl.'/js/tiny_mce/jquery.tinymce.js');
+        $this->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js');
+        $this->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js');
+        echo $this->headScript();
+        ?>
+        <script type="text/javascript">
+        	var baseurl = '<?php echo $baseUrl?>';
+        </script>
+    </head>
+    <body>
+    	<!--[if IE]>
+    	<div class="ui-state-highlight">You are using Internet Explorer which is not entirely supported on this site. Please see the Supported Browsers
+    	links in the sidebar</div>
+    	<![endif]-->
+    	<div id="header">
+			<div id="title">
+				<h1><a href="<?php echo $baseUrl?>"><img src="<?php echo $baseUrl?>/img/logo.png" alt="CPLA Grader" /></a></h1>
+			</div>
+			<div id="subtitle">
+				<?php echo $siteConfig->version?>
+			</div>
+			<?php echo $this->navigation()?>
+		</div>
+		<div id="container">		
+			<div id="main">
+    			<div id="sidebar">
+                    <h2>Links</h2>
+                    <ul>
+                    	<li><a href="http://sites.ewu.edu/austrianalex">Class Blog</a></li>
+                    	<li><a href="http://myitlab.com">MyITLab</a></li>
+                        <li><a href="http://studentweb.ewu.edu/ftp/">Netstorage FTP</a></li>
+                    </ul>
+                    <h2>Helpful Resources</h2>
+                    <ul>
+                    	<li><a href="http://www.w3schools.com/">W3Schools</a></li>
+                    	<li><a href="http://www.google.com">Google</a></li>
+                    	<li><a href="https://office.microsoft.com/en-us/">Office</a></li>
+                    </ul>
+                    <h2>Supported Browsers</h2>
+                    <ul>
+                    	<li><a href="https://www.mozilla.com/en-US/firefox/">Firefox</a></li>
+                    	<li><a href="http://www.google.com/chrome">Chrome</a></li>
+                    	<li><a href="http://www.opera.com">Opera</a></li>
+                    	<li><a href="http://www.apple.com/safari/">Safari</a></li>
+                    </ul>
+                </div>
+              	<div id="content">
+                    <?php echo $this->layout()->content ?>
+                </div>
+                <div class="clearer">
+    		    </div>
+    		</div>
+            <div id="footer">
+	            <a id="w3c" href="http://validator.w3.org/check?uri=referer"><img
+	            src="<?php echo $baseUrl?>/img/xhtml10.png"
+	            alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+	            Copyright &copy; Alex Chernikov. For use only with <?php echo $siteConfig->class.' '.$siteConfig->quarter?>.<br />
+	            Email: <a href="mailto:achernikov68@ewu.edu">achernikov68@ewu.edu</a>
+        	</div>
+    	</div>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <validation>fall2011</validation>
+    <version>[gamma]</version>
+    <class>CPLA 120-XX</class>
+    <quarter>Fall 2011</quarter>
+    <feeds>
+        <main>http://feeds.feedburner.com/TheAlexSpring2011Cpla120?format=xml</main>
+    </feeds>
+</config>

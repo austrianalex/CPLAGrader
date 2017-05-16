@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+.assignment {width: 100%; }
+.assignment th{padding: 7px 10px; font-size:1.1em;}
+.assignment td{border-bottom: 1px dashed black; padding: 5px 7px;}
+.assignment tbody tr:hover td{background:#fffeee;}

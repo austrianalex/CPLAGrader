@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+#status{float:right;width:50%; display:inline;}
+#news{float:left;width:50%;display:inline;}
+* html body #news{width:49%}
+#news div div h2 a{color: #367EA6;}

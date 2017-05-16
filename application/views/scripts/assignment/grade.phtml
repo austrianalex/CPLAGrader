@@ -1,0 +1,29 @@
+<h1>Grade Assignment 
+<?php
+if ($this->assignment)
+    echo ' - '.$this->assignment->getName().': '.$this->assignment->getMaxPoints().' points';
+?>
+</h1>
+<div id="dialog" class="hidden">text</div>
+<?php 
+if ($this->message)
+{
+    echo $this->message;
+}
+else
+{
+    $this->form->setAction($this->url());
+    echo $this->form;
+}
+if ($this->assignment)
+{
+    echo '<br /><br />Create entry for: <select id="userEntries">';
+    foreach ($this->users as $user)
+    {
+        echo '<option value="'.$user->getId().'">'.$user->getProperName().'</option>';
+    }
+    echo '</select><span class="button" id="createEntry">
+                    	<a href="'.$this->url(array('controller' => 'assignment', 'action' => 'fill', 'id' => $this->assignment->getId())).'">Mmmk</a>
+                    </span><br />';
+    echo '<a href="'.$this->url(array('controller' => 'assignment', 'action' => 'fill', 'id' => $this->assignment->getId())).'">Create Entries for All Students</a>';
+}

@@ -1,0 +1,12 @@
+<p>Please use the form below to register.</p>
+
+<?php
+if ($this->message)
+{
+    echo $this->message;
+}
+else
+{
+    $this->form->setAction($this->url());
+    echo $this->form;
+}

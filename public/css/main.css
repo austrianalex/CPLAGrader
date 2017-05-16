@@ -1,0 +1,67 @@
+@CHARSET "ISO-8859-1";
+html,
+	body{background: #333; text-align: center}
+p{margin: 10px;}
+h1 {font-size: 1.6em;}
+h1,
+	h2,
+	h3 {color: #367EA6;padding-top: 6px; margin-bottom:5px;}
+h1{text-align:center}
+strong{font-weight:bold;}
+em{font-style:italic}
+code {background: url('../img/bgcode.gif');border: 1px solid #F0F0F0;border-left: 6px solid #39F;color: #555;display: block;
+    font: normal 1.1em Helvetica,"Lucida Sans Unicode",serif;margin-bottom: 12px;padding: 8px 10px;white-space: pre;}
+cite {background: url('../img/quote.gif') no-repeat;color: #666;display: block;font: normal 1.3em "Lucida Sans Unicode",serif;
+    padding-left: 28px;}
+blockquote{padding: 5px 10px 5px 10px; border: none; 
+    background:#F0F0F0 url('../img/quote.gif') no-repeat; font:.9em "Lucida Sans Unicode",sans-serif;}
+label{font-weight:bold}
+fieldset {border: 1px solid #AAAAAA;width: 75%;padding: 5px; margin-bottom: 3px;}
+fieldset legend {color:#367EA6;padding: 6px;font-weight: bold; border: 1px solid #AAAAAA;}
+ol li {list-style-type:lower-alpha; margin-left:20px;}
+.clearer{clear:both}
+.hidden{display:none}
+.right{float:right;}
+#header {margin: 0 auto;padding: 0; width:1024px; background: url('../img/backfirst.png') repeat-x; text-align: left}
+#bodybg {background: #e3e3e3; padding-top: 0px;}
+#title h1 {color: #FFF;font: normal 3em Verdana,sans-serif;margin-bottom: 8px;
+    text-align: center;}
+#title h1 a{text-decoration:none;color: #FFF;}
+#subtitle{padding: 0 15px 10px 15px; color: #fff; font: .8em Verdana; text-align: center;}
+.navigation {padding: 0px 5px 0px 5px;}
+.navigation a{text-decoration: none;}
+#headmenu{background: url('../img/menubg.png') repeat-x;height:35px;}
+#container {margin: 0 auto; width:1024px; background-color:#fff; text-align: left}
+#main {clear: both;padding: 0px 18px; height:auto;}
+#sidebar {background: #fff;float: right;width: 200px;}
+#sidebar h1, 
+#sidebar h2 {color: #444;font-size: 1.1em;height: 20px;padding: 1.2em 0px 0px 7px;}
+#sidebar ul, 
+	.sidenav ul li ul li ul {border-top: 1px solid #dadada;}
+#sidebar ul.bghack{border-top: 0px; background: none;}
+#sidebar li {border-top: none;list-style: none;color: #555;font-size: 14px;}
+#sidebar li a {text-decoration: none; display:block; padding: 3px 6px 3px 14px;}
+* html body #sidebar li a {width:100%;} /*IE fix*/
+#sidebar li a:hover {background-color:#fafafa; text-decoration:none;}
+#sidebar li ul li{border: 0px;}
+#content {font-size:.8em;font-family: Helvetica,"Lucida Sans Unicode",sans-serif;line-height:1.5em;float: left; background: #fff; 
+    width:775px;padding-top:10px;}
+#footer {background: #181818;color: #fff;font: 80% Verdana;margin: 0 auto;text-align: center;padding: 6px;}
+#footer a{border-bottom:1px dashed #FFFFFF;color:#FFFFFF;text-decoration:none;}
+#footer a:hover {border-bottom:1px solid #FFFFFF;text-decoration:none;}
+#footer a#w3c{border-bottom:0px;float:right;}
+ul.navigation {list-style: none;padding: 0 20px;margin: 0 0px;float: left;width: 984px;background: #222;font-size: 1.1em;
+    background: url(../img/topnav_bg.gif) repeat-x;}
+* html body ul.navigation { width: 100%  } /*IE fix*/
+ul.navigation li {float: left;margin: 0;padding: 0 15px 0 0;position: relative; z-index:5;}
+ul.navigation li a{padding: 7px 5px;color: #fff;display: block;text-decoration: none;float: left;}
+ul.navigation li a:hover{background: url(../img/topnav_hover.gif) no-repeat center top;}
+ul.navigation li span {width: 17px;height: 35px;float: left;background: url(../img/subnav_btn.gif) no-repeat center top;}
+ul.navigation li span.subhover {background-position: center bottom; cursor: pointer;} /*--Hover effect for trigger--*/
+ul.navigation li ul {list-style: none; position: absolute; left: 0; top: 35px;background: #333;margin: 0; padding: 0;
+    display: none;float: left;width: 170px;border: 1px solid #111;z-index: 3;}
+ul.navigation li ul li{margin: 0; padding: 0;border-top: 1px solid #252525;border-bottom: 1px solid #444;clear: both;width: 170px;}
+html ul.navigation li ul li a {float: left;width: 145px;background: #333 url(../img/dropdown_linkbg.gif) no-repeat 10px center;
+    padding-left: 20px;}
+html ul.navigation li ul li a:hover {background: #222 url(../img/dropdown_linkbg.gif) no-repeat 10px center;}
+.ui-state-ok{border: 1px solid #C1DC76; background: #EFF8D8}
